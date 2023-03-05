@@ -26,7 +26,6 @@ impl fmt::Display for Menu {
     }
 }
 
-
 fn main() {
     let answer: Menu = Select::new("Select your action:", Menu::VARIANTS.to_vec())
         .with_page_size(9)
@@ -67,5 +66,3 @@ fn main() {
         }
     }
 }
-
-
