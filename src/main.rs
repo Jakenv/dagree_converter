@@ -36,8 +36,6 @@ fn main() {
         Menu::Celsius => {
             loop {
             println!("Provide the temperature in Celsius");
-            let b: f64 = 1.8;
-            let c: f64 = 32.0;
             let mut dagrees = String::new();
             io::stdin()
                 .read_line(&mut dagrees)
@@ -46,7 +44,7 @@ fn main() {
                 Ok(num) => num,
                 Err(_) => continue,
             };
-            let dagrees = dagrees * b + c;
+            let dagrees = dagrees * 1.8 + 32.0;
             println!("Your temperature in Fahrenheit: {dagrees}");
             break;
             }
@@ -54,8 +52,6 @@ fn main() {
         Menu::Fahrenheit => {
             loop {
             println!("Provide the temperature in Fahrenheit");
-            let b: f64 = 0.5556;
-            let c: f64 = 32.0;
             let mut dagrees = String::new();
             io::stdin()
                 .read_line(&mut dagrees)
@@ -64,7 +60,7 @@ fn main() {
                 Ok(num) => num,
                 Err(_) => continue,
             };
-            let dagrees = (dagrees - c) * b;
+            let dagrees = (dagrees - 32.0) * 0.5556;
             println!("Your temperature in Celsius: {dagrees}");
             break;
             }
