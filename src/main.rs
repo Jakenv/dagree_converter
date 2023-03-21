@@ -1,6 +1,6 @@
-use std::io;
+use inquire::Select;
 use std::fmt;
-use inquire::{Select};
+use std::io;
 
 #[derive(Debug, Copy, Clone)]
 #[allow(clippy::upper_case_acronyms)]
@@ -11,17 +11,14 @@ enum Menu {
 
 impl Menu {
     // add code here
-    const VARIANTS: &'static [Menu] = & [
-        Self::Celsius,
-        Self::Fahrenheit,
-    ];
+    const VARIANTS: &'static [Menu] = &[Self::Celsius, Self::Fahrenheit];
 }
 
 impl fmt::Display for Menu {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
             Self::Celsius => write!(f, "Convert temperature from Fahrenheit to Celsius"),
-            Self::Fahrenheit => write!(f, "Convert temperature from Celsius to Fahrenheit")
+            Self::Fahrenheit => write!(f, "Convert temperature from Celsius to Fahrenheit"),
         }
     }
 }
@@ -32,8 +29,7 @@ fn main() {
         .prompt()
         .unwrap_or_else(|_| std::process::exit(0));
     match answer {
-        Menu::Celsius => {
-            loop {
+        Menu::Celsius => loop {
             println!("Provide the temperature in Celsius");
             let mut dagrees = String::new();
             io::stdin()
@@ -46,10 +42,8 @@ fn main() {
             let dagrees = dagrees * 1.8 + 32.0;
             println!("Your temperature in Fahrenheit: {dagrees}");
             break;
-            }
-        }
-        Menu::Fahrenheit => {
-            loop {
+        },
+        Menu::Fahrenheit => loop {
             println!("Provide the temperature in Fahrenheit");
             let mut dagrees = String::new();
             io::stdin()
@@ -62,7 +56,6 @@ fn main() {
             let dagrees = (dagrees - 32.0) * 0.5556;
             println!("Your temperature in Celsius: {dagrees}");
             break;
-            }
-        }
+        },
     }
 }
