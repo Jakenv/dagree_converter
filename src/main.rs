@@ -31,30 +31,30 @@ fn main() {
     match answer {
         Menu::Celsius => loop {
             println!("Provide the temperature in Celsius");
-            let mut dagrees = String::new();
+            let mut degrees = String::new();
             io::stdin()
-                .read_line(&mut dagrees)
+                .read_line(&mut degrees)
                 .expect("Failed to read line");
-            let dagrees: f64 = match dagrees.trim().parse() {
+            let degrees: f64 = match degrees.trim().parse() {
                 Ok(num) => num,
                 Err(_) => continue,
             };
-            let dagrees = dagrees * 1.8 + 32.0;
-            println!("Your temperature in Fahrenheit: {dagrees}");
+            let degrees = degrees * 1.8 + 32.0;
+            println!("Your temperature in Fahrenheit: {degrees}");
             break;
         },
         Menu::Fahrenheit => loop {
             println!("Provide the temperature in Fahrenheit");
-            let mut dagrees = String::new();
+            let mut degrees = String::new();
             io::stdin()
-                .read_line(&mut dagrees)
+                .read_line(&mut degrees)
                 .expect("Failed to read line");
-            let dagrees: f64 = match dagrees.trim().parse() {
+            let degrees: f64 = match degrees.trim().parse() {
                 Ok(num) => num,
                 Err(_) => continue,
             };
-            let dagrees = (dagrees - 32.0) * 0.5556;
-            println!("Your temperature in Celsius: {dagrees}");
+            let degrees = (degrees - 32.0) * 0.5556;
+            println!("Your temperature in Celsius: {degrees}");
             break;
         },
     }
