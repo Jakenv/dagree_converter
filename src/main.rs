@@ -10,15 +10,14 @@ enum Menu {
 }
 
 impl Menu {
-    // add code here
     const VARIANTS: &'static [Menu] = &[Self::Celsius, Self::Fahrenheit];
 }
 
 impl fmt::Display for Menu {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            Self::Celsius => write!(f, "Convert temperature from Fahrenheit to Celsius"),
-            Self::Fahrenheit => write!(f, "Convert temperature from Celsius to Fahrenheit"),
+            Self::Fahrenheit => write!(f, "Convert temperature from Fahrenheit to Celsius"),
+            Self::Celsius => write!(f, "Convert temperature from Celsius to Fahrenheit"),
         }
     }
 }
@@ -39,7 +38,7 @@ fn main() {
                 Ok(num) => num,
                 Err(_) => continue,
             };
-            let degrees = degrees * 1.8 + 32.0;
+            let degrees = (degrees * 1.8 + 32.0).round();
             println!("Your temperature in Fahrenheit: {degrees}");
             break;
         },
@@ -53,7 +52,7 @@ fn main() {
                 Ok(num) => num,
                 Err(_) => continue,
             };
-            let degrees = (degrees - 32.0) * 0.5556;
+            let degrees = ((degrees - 32.0) * 0.5556).round();
             println!("Your temperature in Celsius: {degrees}");
             break;
         },
